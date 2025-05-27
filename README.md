@@ -67,11 +67,11 @@ const events = await openai.responses.create({
     {
       type: "mcp",
       server_label: "pearl-api-mcp-server",
-      server_url: "https://pearl-api-mcp-server.pearlapi.workers.dev/mcp",
+      server_url: "https://mcp.pearl.com/mcp",
       require_approval: "never",
       allowed_tools: ["askExpert"],
       headers: {
-        Authorization: `Bearer ${process.env.PEARL_API_KEY}`,
+        "X-API-KEY": `${process.env.PEARL_API_KEY}`,
       },
     },
   ],
@@ -83,7 +83,7 @@ const events = await openai.responses.create({
 
 ### 🔐 Pearl MCP Authentication
 
-Pearl MCP server uses **Bearer token authentication**, passed via the `Authorization` header. Contact [Pearl](https://www.pearl.com/contact) to obtain your API key.
+Pearl MCP server uses **Api Key authentication**, passed via the `X-API-KEY` header. Contact [Pearl](https://www.pearl.com/contact) to obtain your API key.
 
 ---
 
@@ -121,6 +121,6 @@ Here’s an example of the Pearl MCP tool call in action:
 - [OpenAI Responses API](https://platform.openai.com/docs/guides/responses)  
 - [Next.js](https://nextjs.org/) (or React if applicable)  
 - [Pearl MCP Server](https://www.pearl.com/api)  
-  (hosted at `https://pearl-api-mcp-server.pearlapi.workers.dev/mcp`)
+  (hosted at `https://mcp.pearl.com/mcp`)
 
 ---
