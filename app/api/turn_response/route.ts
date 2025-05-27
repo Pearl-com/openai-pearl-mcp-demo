@@ -17,11 +17,11 @@ export async function POST(request: Request) {
           // @ts-expect-error ignore type error
           "type": "mcp",
           server_label: "pearl-api-mcp-server",
-          server_url: "https://pearl-api-mcp-server.pearlapi.workers.dev/mcp",
+          server_url: "https://mcp.pearl.com/mcp",
           require_approval: "never",
           allowed_tools: ["askExpert"],
           headers: {
-            "Authorization": `Bearer ${process.env.PEARL_API_KEY}`,
+            "X-API-KEY": `${process.env.PEARL_API_KEY}`,
           }
         }
       ],

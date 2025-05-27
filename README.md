@@ -37,6 +37,24 @@ PEARL_API_KEY=your-pearl-api-key
 
 This app leverages OpenAI's hosted **Model Context Protocol (MCP)** integration to connect with Pearl’s MCP server. The server provides tools like `askExpert` that route queries to real, credentialed professionals.
 
+```mermaid
+graph TD
+    A[AI Encounter] --> B{Recognize Need for Expert};
+    B -- Human Input Required --> C[Invoke via MCP];
+    C -- Context & Question --> D[Route to Expert];
+    D -- Request Forwarded --> E[Expert Input];
+    E -- Review/Answer Provided --> F[Return to AI];
+    F -- Structured Expert Response --> G[AI Response];
+
+    style A fill:#D4E6F1,stroke:#3498DB,stroke-width:2px,color:#2C3E50;
+    style B fill:#F9E79F,stroke:#F1C40F,stroke-width:2px,color:#2C3E50;
+    style C fill:#D4E6F1,stroke:#3498DB,stroke-width:2px,color:#2C3E50;
+    style D fill:#D4E6F1,stroke:#3498DB,stroke-width:2px,color:#2C3E50;
+    style E fill:#D4E6F1,stroke:#3498DB,stroke-width:2px,color:#2C3E50;
+    style F fill:#F9E79F,stroke:#F1C40F,stroke-width:2px,color:#2C3E50;
+    style G fill:#D4E6F1,stroke:#3498DB,stroke-width:2px,color:#2C3E50;
+```
+
 ### 🔗 Pearl MCP Tool Configuration
 
 Here’s how the `tools` block is defined inside the `openai.responses.create()` call:
